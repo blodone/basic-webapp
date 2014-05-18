@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                     'assets/components/es5-shim/es5-shim.js',
                     'assets/components/angular/angular.js',
                     'assets/components/angular-route/angular-route.js',
-                    'assets/app/**/*.js',
+                    'app/**/*.js',
                 ],
                 dest: 'assets/js/app.js'
             }
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         },
 
         jshint: {
-            beforeconcat: ['assets/app/**/*.js']
+            beforeconcat: ['app/**/*.js']
         },
 
         less: {
