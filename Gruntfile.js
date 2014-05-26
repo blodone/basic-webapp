@@ -12,6 +12,7 @@ module.exports = function(grunt) {
                     'assets/components/es5-shim/es5-shim.js',
                     'assets/components/angular/angular.js',
                     'assets/components/angular-route/angular-route.js',
+                    'assets/components/angular-mocks/angular-mocks.js',
                     'app/**/*.js',
                 ],
                 dest: 'assets/js/app.js'
