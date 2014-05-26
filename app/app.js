@@ -7,7 +7,8 @@
      *  Load all modules needed
      */
     var app = angular.module('APPNAME', [
-        'ngRoute'
+        'ngRoute',
+        'APPNAME.index'
     ]);
 
     /*
