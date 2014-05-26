@@ -90,6 +90,13 @@ module.exports = function(grunt) {
                 ],
             }
         },
+
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                singleRun: true
+            }
+        },
         
         watch: {
             options: {
@@ -102,6 +109,10 @@ module.exports = function(grunt) {
             less: {
                 files: ["assets/less/*.less"],
                 tasks: ['less:development']
+            },
+            karma: {
+                files: ['app/**/*.js', 'tests/unit/**/*.js'],
+                tasks: ['karma:unit:run'] //NOTE the :run flag
             }
         }
     });
@@ -115,6 +126,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-karma');
 
     // Default task(s).
     grunt.registerTask('default', [
@@ -124,10 +136,17 @@ module.exports = function(grunt) {
         'watch'
     ]);
 
+    grunt.registerTask('test', [
+        'concat',
+        'jshint', 
+        'karma',
+    ]);
+
     grunt.registerTask('build', [
         'concat', 
         'uglify', 
-        'jshint', 
+        'jshint',
+        'karma',
         'less',
         'imagemin',
         'processhtml',
