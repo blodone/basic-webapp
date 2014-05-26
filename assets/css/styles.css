@@ -382,8 +382,3 @@ body {
   background: #e96856;
   color: #ffffff;
 }
-div {
-  width: 50px;
-  height: 50px;
-  background: url(../images/icons/ajax-loader.gif);
-}
