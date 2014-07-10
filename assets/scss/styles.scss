@@ -5,6 +5,7 @@
 
 // ****** Others ******
 // -----------------------------------------
-@import '_variables.scss';
-@import '_mixins.scss';
-@import '_basics.scss';
+@import 'base/base.scss';
+@import 'components/components.scss';
+@import 'utils/utils.scss';
+@import 'modules/modules.scss';
