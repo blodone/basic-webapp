@@ -16,7 +16,7 @@ There are already some basic components included:
 * Normalize-CSS
 * Grunt Taskrunner
 
-I use LESS (http://lesscss.org) as CSS Preprocessor.
+I use SASS (http://sass-lang.com) as CSS Preprocessor and susy as grid framework.
 
 Installation
 ============
@@ -40,6 +40,11 @@ bower install
 3.) Install Grunt modules/tasks
 ```
 npm install
+```
+
+4.) Install susy (http://susy.oddbird.net)
+```
+gem install susy
 ```
 
 That's it!
