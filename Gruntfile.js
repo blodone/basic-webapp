@@ -30,20 +30,23 @@ module.exports = function(grunt) {
             beforeconcat: ['app/**/*.js']
         },
 
-        less: {
+        sass: {
             development: {
+                options: {
+                    style: "expanded",
+                    require: 'susy'
+                },
                 files: {
-                    "assets/css/styles.css": "assets/less/styles.less"
+                    "assets/css/styles.css": "assets/scss/styles.scss"
                 }
             },
             production: {
                 options: {
-                    cleancss: true,
-                    keepSpecialComments: 0,
-                    compress: true
+                    style: "compressed",
+                    require: 'susy'
                 },
                 files: {
-                    "dist/assets/css/styles.min.css": "assets/less/styles.less"
+                    "dist/assets/css/styles.min.css": "assets/scss/styles.scss"
                 }
             }
         },
@@ -106,9 +109,9 @@ module.exports = function(grunt) {
                 files: ["<%= concat.dist.src %>"],
                 tasks: ['concat', 'jshint']
             },
-            less: {
-                files: ["assets/less/*.less"],
-                tasks: ['less:development']
+            sass: {
+                files: ["assets/scss/*.scss"],
+                tasks: ['sass:development']
             },
             karma: {
                 files: ['app/**/*.js', 'tests/unit/**/*.js'],
@@ -119,7 +122,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-processhtml');
@@ -132,7 +135,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'concat',
         'jshint', 
-        'less:development', 
+        'sass:development', 
         'watch'
     ]);
 
@@ -147,7 +150,7 @@ module.exports = function(grunt) {
         'uglify', 
         'jshint',
         'karma',
-        'less',
+        'sass',
         'imagemin',
         'processhtml',
         'htmlmin'
