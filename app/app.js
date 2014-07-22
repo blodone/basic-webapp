@@ -11,11 +11,4 @@
         'APPNAME.index'
     ]);
 
-    /*
-     *  Angular routing
-     */
-    app.config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/', {templateUrl: 'views/equipment-list.html', controller: 'AnyController'});
-        $routeProvider.when('/start', {templateUrl: 'views/equipment-list.html', controller: 'AnyController'});
-    }]);
 })(window, window.angular);
