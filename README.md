@@ -10,7 +10,7 @@ Components
 There are already some basic components included:
 
 * AngularJS
-* AngularJS-Routes
+* AngularUI Router
 * es5-Shim
 * Fastclick (To prevent 300ms click delay on mobile)
 * Normalize-CSS
