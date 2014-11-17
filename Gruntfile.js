@@ -11,7 +11,7 @@ module.exports = function(grunt) {
                 src: [
                     'assets/components/es5-shim/es5-shim.js',
                     'assets/components/angular/angular.js',
-                    'assets/components/angular-ui-router/angular-ui-router.js',
+                    'assets/components/angular-ui-router/release/angular-ui-router.js',
                     'assets/components/angular-mocks/angular-mocks.js',
                     'app/**/*.js',
                 ],
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                 src: [
                     'assets/components/es5-shim/es5-shim.min.js',
                     'assets/components/angular/angular.min.js',
-                    'assets/components/angular-ui-router/angular-ui-router.min.js',
+                    'assets/components/angular-ui-router/release/angular-ui-router.min.js',
                     'app/**/*.js',
                 ],
                 dest: 'assets/js/app.dist.js'
