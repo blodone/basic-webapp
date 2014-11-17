@@ -16,7 +16,8 @@
     "karma-chrome-launcher": "*",
     "karma-jasmine": "*",
     "grunt-karma": "*",
-    "karma-phantomjs-launcher": "*"
+    "karma-phantomjs-launcher": "*",
+    "grunt-contrib-copy": "~0.7.0"
   },
   "dependencies": {
     "time-grunt": "~1.0.0",
