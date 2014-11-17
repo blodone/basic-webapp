@@ -110,7 +110,7 @@ module.exports = function(grunt) {
                 tasks: ['concat', 'jshint']
             },
             sass: {
-                files: ["assets/scss/*.scss"],
+                files: ["assets/scss/**/*.scss"],
                 tasks: ['sass:development']
             },
             karma: {
