@@ -154,7 +154,7 @@ module.exports = function(grunt) {
         'uglify', 
         'jshint',
         'karma',
-        'sass',
+        'sass:dist',
         'imagemin',
         'processhtml',
         'htmlmin'
