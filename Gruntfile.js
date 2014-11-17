@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                     "assets/css/styles.css": "assets/scss/styles.scss"
                 }
             },
-            production: {
+            dist: {
                 options: {
                     style: "compressed"
                 },
