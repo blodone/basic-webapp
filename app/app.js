@@ -8,7 +8,7 @@
      */
     var app = angular.module('APPNAME', [
         'ui.router',
-        'APPNAME.index'
+        'APPNAME.master'
     ]);
 
     app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

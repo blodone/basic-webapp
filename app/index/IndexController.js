@@ -1,6 +1,6 @@
 (function(window, angular, undefined){ 'use strict';
-    var index = angular.module('APPNAME.index', []);
-    index.controller('IndexController', ['$scope',  function($scope){
+    var master = angular.module('APPNAME.master', []);
+    master.controller('MasterController', ['$scope',  function($scope){
 
         $scope.hello = "Hello World!";
 
