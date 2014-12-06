@@ -7,21 +7,30 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         concat: {   
-            dist: {
+            development: {
                 src: [
                     'assets/components/es5-shim/es5-shim.js',
                     'assets/components/angular/angular.js',
-                    'assets/components/angular-route/angular-route.js',
+                    'assets/components/angular-ui-router/release/angular-ui-router.js',
                     'assets/components/angular-mocks/angular-mocks.js',
                     'app/**/*.js',
                 ],
                 dest: 'assets/js/app.js'
+            },
+            dist: {
+                src: [
+                    'assets/components/es5-shim/es5-shim.min.js',
+                    'assets/components/angular/angular.min.js',
+                    'assets/components/angular-ui-router/release/angular-ui-router.min.js',
+                    'app/**/*.js',
+                ],
+                dest: 'assets/js/app.dist.js'
             }
         },
 
         uglify: {
             build: {
-                src: 'assets/js/app.js',
+                src: 'assets/js/app.dist.js',
                 dest: 'dist/assets/js/app.min.js'
             }
         },
@@ -33,17 +42,15 @@ module.exports = function(grunt) {
         sass: {
             development: {
                 options: {
-                    style: "expanded",
-                    require: 'susy'
+                    style: "expanded"
                 },
                 files: {
                     "assets/css/styles.css": "assets/scss/styles.scss"
                 }
             },
-            production: {
+            dist: {
                 options: {
-                    style: "compressed",
-                    require: 'susy'
+                    style: "compressed"
                 },
                 files: {
                     "dist/assets/css/styles.min.css": "assets/scss/styles.scss"
@@ -110,12 +117,8 @@ module.exports = function(grunt) {
                 tasks: ['concat', 'jshint']
             },
             sass: {
-                files: ["assets/scss/*.scss"],
+                files: ["assets/scss/**/*.scss"],
                 tasks: ['sass:development']
-            },
-            karma: {
-                files: ['app/**/*.js', 'tests/unit/**/*.js'],
-                tasks: ['karma:unit:run'] //NOTE the :run flag
             }
         }
     });
@@ -130,10 +133,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task(s).
     grunt.registerTask('default', [
-        'concat',
+        'concat:development',
         'jshint', 
         'sass:development', 
         'watch'
@@ -146,11 +150,11 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
-        'concat', 
+        'concat:dist', 
         'uglify', 
         'jshint',
         'karma',
-        'sass',
+        'sass:dist',
         'imagemin',
         'processhtml',
         'htmlmin'

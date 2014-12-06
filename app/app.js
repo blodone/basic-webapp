@@ -7,8 +7,19 @@
      *  Load all modules needed
      */
     var app = angular.module('APPNAME', [
-        'ngRoute',
+        'ui.router',
         'APPNAME.index'
     ]);
+
+    app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/");
+
+        $stateProvider
+            .state('index', {
+                url: "/",
+                templateUrl: "views/start.html",
+                controller: "IndexController"
+            });
+    }]);
 
 })(window, window.angular);
